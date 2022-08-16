@@ -36,16 +36,19 @@ document.getElementById('withdraw-btn').addEventListener('click', function(){
     let withdrawBalance =document.getElementById('withdraw-balance');
     let withdrawText = parseFloat(withdrawBalance.innerText);
 
-    let totalWithdrawBalance = inputWithdrawValue + withdrawText;
-    withdrawBalance.innerText = totalWithdrawBalance;
-
-
     let balance = document.getElementById('balance');
     let balanceText =parseFloat(balance.innerText);
 
     if(inputWithdrawValue > balanceText){
-        return alert("You Don't Have Much Money")
+        alert("You Don't Have Much Money");
+        return;
     }
+
+    let totalWithdrawBalance = inputWithdrawValue + withdrawText;
+    withdrawBalance.innerText = totalWithdrawBalance;
+
+
+    
 
     let balanceTotal = balanceText - inputWithdrawValue;
     balance.innerText = balanceTotal;
