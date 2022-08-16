@@ -2,6 +2,9 @@ document.getElementById('deposit-btn').addEventListener('click', function(){
     const depositInput =document.getElementById('deposit-input')
     const depositInputValue = depositInput.value;
     const inputDeposit =parseFloat(depositInputValue);
+    if (isNaN(inputDeposit)) {
+        return alert('please input deposit amount');
+      }
     
     let deposit = document.getElementById('deposit');
     let depositText = parseFloat(deposit.innerText); 
@@ -15,6 +18,7 @@ document.getElementById('deposit-btn').addEventListener('click', function(){
     let totalBalance= balanceText + inputDeposit;
     balance.innerText = totalBalance;
 
+
     depositInput.value= '';
     
 })
@@ -25,6 +29,9 @@ document.getElementById('deposit-btn').addEventListener('click', function(){
 document.getElementById('withdraw-btn').addEventListener('click', function(){
     let inputWithdraw = document.getElementById('input-withdraw');
     let inputWithdrawValue = parseFloat(inputWithdraw.value);
+    if (isNaN(inputWithdrawValue)) {
+        return alert('please input withdraw amount');
+      }
     
     let withdrawBalance =document.getElementById('withdraw-balance');
     let withdrawText = parseFloat(withdrawBalance.innerText);
@@ -35,6 +42,10 @@ document.getElementById('withdraw-btn').addEventListener('click', function(){
 
     let balance = document.getElementById('balance');
     let balanceText =parseFloat(balance.innerText);
+
+    if(inputWithdrawValue > balanceText){
+        return alert("You Don't Have Much Money")
+    }
 
     let balanceTotal = balanceText - inputWithdrawValue;
     balance.innerText = balanceTotal;
